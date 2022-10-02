@@ -2,7 +2,7 @@
     // Created on 2022/09/30.
     // 
     
-
+// containerを作成
 import CoreData
 
 struct PersistenceController {
@@ -28,12 +28,12 @@ struct PersistenceController {
 
     let container: NSPersistentContainer
 
-    init(inMemory: Bool = false) {
-        container = NSPersistentContainer(name: "_min_Diary_for_iOS")
+    init(inMemory: Bool = false) {//構造体PersistenceControllerのインスタンス生成時に呼び出される(初期値の設定)
+        container = NSPersistentContainer(name: "_min_Diary_for_iOS")//NSPersistentContainerのインスタンスを生成して定数に格納//引数にはModelDataファイル名を入れる
         if inMemory {
             container.persistentStoreDescriptions.first!.url = URL(fileURLWithPath: "/dev/null")
         }
-        container.loadPersistentStores(completionHandler: { (storeDescription, error) in
+        container.loadPersistentStores(completionHandler: { (storeDescription, error) in//loadPersistentStoresメソッド:PersistentStoreを読み込み、作成したことがない場合は作成する
             if let error = error as NSError? {
                 // Replace this implementation with code to handle the error appropriately.
                 // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
@@ -46,7 +46,7 @@ struct PersistenceController {
                  * The store could not be migrated to the current model version.
                  Check the error message to determine what the actual problem was.
                  */
-                fatalError("Unresolved error \(error), \(error.userInfo)")
+                fatalError("Unresolved error \(error), \(error.userInfo)")//PersistentStoreの読み込みでエラーが発生した際はアプリを落とす
             }
         })
         container.viewContext.automaticallyMergesChangesFromParent = true
