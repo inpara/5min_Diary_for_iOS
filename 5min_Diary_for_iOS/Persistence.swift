@@ -11,11 +11,12 @@ struct PersistenceController {
     static var preview: PersistenceController = {//プレビュー用DB設定
         let result = PersistenceController(inMemory: true)
         let viewContext = result.container.viewContext
+        
         //プレビュー用初期値設定//後程、自アプリ用に書き換える
-//        for _ in 0..<10 {
-//            let newItem = Item(context: viewContext)
-//            newItem.timestamp = Date()
-//        }
+        let newTask = Task(context: viewContext)
+        newTask.timestamp = Date()
+        newTask.checked = false
+        newTask.name = "初期タスク"
         do {
             try viewContext.save()
         } catch {

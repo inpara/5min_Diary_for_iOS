@@ -14,8 +14,8 @@ struct ContentView: View {
     /// データ取得処理
     @FetchRequest(
         entity: Task.entity(),
-        sortDescriptors: [NSSortDescriptor(keyPath: \Task.timestamp, ascending: true)],
-        predicate: nil
+        sortDescriptors: [NSSortDescriptor(keyPath: \Task.timestamp, ascending: true)],//ソート条件
+        predicate: nil//抽出条件
     ) private var tasks: FetchedResults<Task>
    
     var body: some View {
@@ -84,12 +84,12 @@ struct AddTaskView: View {
             ToolbarItem(placement: .navigationBarTrailing) {
                 Button("保存") {
                     /// タスク新規登録処理
-                    let newTask = Task(context: context)
+                    let newTask = Task(context: context)//エンティティクラスTaskのインスタンスを生成
                     newTask.timestamp = Date()
                     newTask.checked = false
                     newTask.name = task
                     
-                    try? context.save()
+                    try? context.save()//コミット
  
                     /// 現在のViewを閉じる
                     presentationMode.wrappedValue.dismiss()
