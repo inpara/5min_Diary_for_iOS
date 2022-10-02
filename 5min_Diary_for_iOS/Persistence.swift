@@ -8,9 +8,10 @@ import CoreData
 struct PersistenceController {
     static let shared = PersistenceController()
 
-    static var preview: PersistenceController = {
+    static var preview: PersistenceController = {//プレビュー用DB設定
         let result = PersistenceController(inMemory: true)
         let viewContext = result.container.viewContext
+        //プレビュー用初期値設定
         for _ in 0..<10 {
             let newItem = Item(context: viewContext)
             newItem.timestamp = Date()

@@ -19,19 +19,19 @@ struct ContentView: View {
             List {
                 ForEach(items) { item in
                     NavigationLink {
-                        Text("Item at \(item.timestamp!, formatter: itemFormatter)")
+                        Text("Item at \(item.timestamp!, formatter: itemFormatter)")//itemFormatterの定義は後述
                     } label: {
                         Text(item.timestamp!, formatter: itemFormatter)
                     }
                 }
-                .onDelete(perform: deleteItems)
+                .onDelete(perform: deleteItems)// 配列FetchedResultsから要素を削除する際に呼び出す処理を指定//deleteItemsの定義は後述
             }
             .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
+                ToolbarItem(placement: .navigationBarLeading) {
                     EditButton()
                 }
-                ToolbarItem {
-                    Button(action: addItem) {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button(action: addItem) {//plusボタンが押されたときの処理を指定,addItemの定義は後述
                         Label("Add Item", systemImage: "plus")
                     }
                 }
@@ -40,6 +40,7 @@ struct ContentView: View {
         }
     }
 
+    //新規レコードの作成
     private func addItem() {
         withAnimation {
             let newItem = Item(context: viewContext)
@@ -47,7 +48,7 @@ struct ContentView: View {
 
             do {
                 try viewContext.save()
-            } catch {
+            } catch {//エラーを返した場合以下を実行
                 // Replace this implementation with code to handle the error appropriately.
                 // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
                 let nsError = error as NSError
@@ -56,12 +57,13 @@ struct ContentView: View {
         }
     }
 
+    //行の削除
     private func deleteItems(offsets: IndexSet) {
         withAnimation {
             offsets.map { items[$0] }.forEach(viewContext.delete)
 
             do {
-                try viewContext.save()
+                try viewContext.save()//削除状態をコミット
             } catch {
                 // Replace this implementation with code to handle the error appropriately.
                 // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
@@ -81,6 +83,6 @@ private let itemFormatter: DateFormatter = {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+        ContentView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)//プレビュー用に環境変数の値を設定
     }
 }
