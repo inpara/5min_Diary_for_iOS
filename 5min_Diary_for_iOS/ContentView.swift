@@ -43,11 +43,11 @@ struct ContentView: View {
     //新規レコードの作成
     private func addItem() {
         withAnimation {
-            let newItem = Item(context: viewContext)
+            let newItem = Item(context: viewContext)//Entity名(context:context名)
             newItem.timestamp = Date()
 
             do {
-                try viewContext.save()
+                try viewContext.save()//データを保存
             } catch {//エラーを返した場合以下を実行
                 // Replace this implementation with code to handle the error appropriately.
                 // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
