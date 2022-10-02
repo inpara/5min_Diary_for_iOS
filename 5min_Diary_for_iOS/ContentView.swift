@@ -9,10 +9,10 @@ import CoreData
 struct ContentView: View {
     @Environment(\.managedObjectContext) private var viewContext//環境変数managedObjectContextを取得し、viewContextに格納
 
-    @FetchRequest(
-        sortDescriptors: [NSSortDescriptor(keyPath: \Item.timestamp, ascending: true)],
+    @FetchRequest(//データを要求
+        sortDescriptors: [NSSortDescriptor(keyPath: \Item.timestamp, ascending: true)],//sortDescriptors:取得したデータの並び順を指定
         animation: .default)
-    private var items: FetchedResults<Item>
+    private var items: FetchedResults<Item>//取得結果を変数に格納<Entity名>
 
     var body: some View {
         NavigationView {
