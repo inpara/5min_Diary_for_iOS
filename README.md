@@ -38,9 +38,11 @@
 - [ファイル生成時のヘッダーテンプレート作成](https://penguinchord.com/blog/swift/xcode-customize-header-new-file)
   - コマンドラインからフォルダ移動してテンプレート作成すれば上手くいく(ファインダーから作成したときは上手くいかなかった)
 - [xcodeでプロジェクトを作成したら必ず確認しておきたいgitignore設定](https://zenn.dev/nkysyuichi/articles/7694975d156dcc)
-- CoreDataの使い方
-  - https://capibara1969.com/3209/
-  - 
+- [Issueの書き方](https://gist.github.com/BcRikko/6af0b248148c12d3ab90)
+- [gitのブランチの命名規則](https://qiita.com/luccafort/items/c91e817e78f1167221cc)
+- エラー処理
+  - https://kazunoriri.com/swiftui-do-try-catch/
+  - [fatalError関数によるプログラム終了](https://qiita.com/onishi_820/items/e6f8cd28fe2ea38ebb7a)
 
 
 ## アイデア
