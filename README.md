@@ -43,6 +43,10 @@
 - エラー処理
   - https://kazunoriri.com/swiftui-do-try-catch/
   - [fatalError関数によるプログラム終了](https://qiita.com/onishi_820/items/e6f8cd28fe2ea38ebb7a)
+- MVVM,アーキテクチャ
+  - [もっともシンプルな SwiftUI - MVVM](https://qiita.com/john-rocky/items/88b45e18bd48e3dbc87c)
+  - [SwiftUIでMVVMやるシンプルなパターン３つ](https://zenn.dev/kyome/articles/710cde86537d45)
+  - [CoreDataでのフォルダ構成の参考](https://design.aoziso.com/swiftui-coredata/)
 
 
 ## アイデア
