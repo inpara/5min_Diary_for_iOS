@@ -36,6 +36,38 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2A1B5E9228EEFD4D0092A263 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				2AE1530128E7340600529F6A /* ContentView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		2A1B5E9328EEFD990092A263 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		2A1B5E9428F59B4B0092A263 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				2AE1530328E7340700529F6A /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		2A1B5E9528F5A9A10092A263 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				2AE1530A28E7340700529F6A /* _min_Diary_for_iOS.xcdatamodeld */,
+				2AE1530828E7340700529F6A /* Persistence.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
 		2AE152F328E7340600529F6A = {
 			isa = PBXGroup;
 			children = (
@@ -56,10 +88,10 @@
 			isa = PBXGroup;
 			children = (
 				2AE152FF28E7340600529F6A /* _min_Diary_for_iOSApp.swift */,
-				2AE1530128E7340600529F6A /* ContentView.swift */,
-				2AE1530328E7340700529F6A /* Assets.xcassets */,
-				2AE1530828E7340700529F6A /* Persistence.swift */,
-				2AE1530A28E7340700529F6A /* _min_Diary_for_iOS.xcdatamodeld */,
+				2A1B5E9328EEFD990092A263 /* Model */,
+				2A1B5E9228EEFD4D0092A263 /* Views */,
+				2A1B5E9528F5A9A10092A263 /* Data */,
+				2A1B5E9428F59B4B0092A263 /* Resources */,
 				2AE1530528E7340700529F6A /* Preview Content */,
 			);
 			path = 5min_Diary_for_iOS;
