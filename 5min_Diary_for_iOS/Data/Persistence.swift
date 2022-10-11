@@ -11,11 +11,13 @@ struct PersistenceController {
     static var preview: PersistenceController = {
         let result = PersistenceController(inMemory: true)
         let viewContext = result.container.viewContext
-//        プレビュー用のデータを設定
-//        for _ in 0..<10 {
-//            let newItem = Item(context: viewContext)
-//            newItem.timestamp = Date()
-//        }
+//      プレビュー用のデータを設定
+//      Item(後で削除する)
+        for _ in 0..<10 {
+            let newItem = Item(context: viewContext)
+            newItem.timestamp = Date()
+        }
+//      Diary(後程使う)
         let newSampleData = Diary(context: viewContext)
         newSampleData.id = UUID()
         newSampleData.create_date = Date()

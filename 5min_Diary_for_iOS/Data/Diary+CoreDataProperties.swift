@@ -23,6 +23,14 @@ extension Diary {
 
 }
 
+//値がnilの場合のデフォルト値定義
+extension Diary{
+    public var wrappedContent:String{content ?? ""}
+    public var wrappedCreate_date:Date{create_date ?? Date()}
+    public var wrappedId:UUID{id ?? UUID()}
+}
+
+
 extension Diary : Identifiable {
 
 }
