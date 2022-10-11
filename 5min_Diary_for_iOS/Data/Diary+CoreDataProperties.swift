@@ -19,6 +19,7 @@ extension Diary {
 
     @NSManaged public var content: String?
     @NSManaged public var create_date: Date?
+    @NSManaged public var id: UUID?
 
 }
 
