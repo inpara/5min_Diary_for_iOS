@@ -18,10 +18,13 @@ struct PersistenceController {
             newItem.timestamp = Date()
         }
 //      Diary(後程使う)
-        let newSampleData = Diary(context: viewContext)
-        newSampleData.id = UUID()
-        newSampleData.create_date = Date()
-        newSampleData.content = "test"
+        for i in 0..<10{
+            let newDiary = Diary(context: viewContext)
+            newDiary.id = UUID()
+            newDiary.createdAt = Date()
+            newDiary.updatedAt = Date()
+            newDiary.content = "test\(i)日目"
+        }
         do {
             try viewContext.save()
         } catch {
