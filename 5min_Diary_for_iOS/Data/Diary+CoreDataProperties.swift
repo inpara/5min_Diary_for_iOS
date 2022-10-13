@@ -18,7 +18,8 @@ extension Diary {
     }
 
     @NSManaged public var content: String?
-    @NSManaged public var create_date: Date?
+    @NSManaged public var createdAt: Date?
+    @NSManaged public var updatedAt: Date?
     @NSManaged public var id: UUID?
 
 }
@@ -26,7 +27,8 @@ extension Diary {
 //値がnilの場合のデフォルト値定義
 extension Diary{
     public var wrappedContent:String{content ?? ""}
-    public var wrappedCreate_date:Date{create_date ?? Date()}
+    public var wrappedCreatedAt:Date{createdAt ?? Date()}
+    public var wrappedUpdatedAt:Date{updatedAt ?? Date()}
     public var wrappedId:UUID{id ?? UUID()}
 }
 
