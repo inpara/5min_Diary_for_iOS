@@ -4,6 +4,7 @@
     
 
 import CoreData
+import Foundation
 
 struct PersistenceController {
     static let shared = PersistenceController()
@@ -15,9 +16,9 @@ struct PersistenceController {
         for i in 0..<10{
             let newDiary = Diary(context: viewContext)
             newDiary.id = UUID()
-            newDiary.createdAt = Date()
+            newDiary.createdAt = Calendar.current.date(byAdding: .day,value:-i, to:Date())!
             newDiary.updatedAt = Date()
-            newDiary.content = "test\(i + 1)日目"
+            newDiary.content = "test\(10 - i)日目"
         }
         do {
             try viewContext.save()
