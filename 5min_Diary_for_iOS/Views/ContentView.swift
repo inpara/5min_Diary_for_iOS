@@ -36,6 +36,14 @@ struct ContentView: View {
             }
             .navigationTitle("Diary")
             .navigationBarTitleDisplayMode(.automatic)
+            .toolbar{
+                ToolbarItem(placement: .navigationBarTrailing){
+                    NavigationLink(destination: AddDiary()){
+                        Text("+")
+                            .font(.system(size: 50))
+                    }
+                }
+            }
         }
     }
 }
