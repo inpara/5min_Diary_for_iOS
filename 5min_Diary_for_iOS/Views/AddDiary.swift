@@ -10,7 +10,7 @@ import SwiftUI
 
 struct AddDiary: View {
     @Environment(\.managedObjectContext) private var viewcontext
-    @Environment(\.presentationMode) var presentation
+    @Environment(\.presentationMode) var presentation//環境変数の取得
     @State private var content: String = ""
     
     var body: some View {
@@ -28,8 +28,19 @@ struct AddDiary: View {
                 }
             }
     }
+    
     private func addDiary(){
-        //ここに処理を記載
+        let diary = Diary(context: viewcontext)
+        diary.id = UUID()
+        diary.content = content
+        diary.createdAt = Date()
+        diary.updatedAt = Date()
+        
+        try? viewcontext.save()//生成したインスタンスをCoreDataに保存//"try?"がよくわからない。
+        
+        //presentationModeにアクセスするにはwrappedValueを使う
+        //dismiss()で、現在のviewを閉じる
+        presentation.wrappedValue.dismiss()
     }
 }
 
