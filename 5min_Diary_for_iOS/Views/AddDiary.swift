@@ -10,7 +10,8 @@ import SwiftUI
 
 struct AddDiary: View {
     @Environment(\.managedObjectContext) private var viewcontext
-    @Environment(\.presentationMode) var presentation//環境変数の取得
+    @Environment(\.isPresented) var isPresented//環境変数isPresented:現在の画面が他の画面から呼び出されたのか否かをbool値で表す
+    @Environment(\.dismiss) var dismiss//環境変数dismiss:現在の画面を閉じる,現在の画面がTopViewである場合は効果はない
     @State private var content: String = ""
     
     var body: some View {
@@ -38,9 +39,10 @@ struct AddDiary: View {
         
         try? viewcontext.save()//生成したインスタンスをCoreDataに保存//"try?"がよくわからない。
         
-        //presentationModeにアクセスするにはwrappedValueを使う
-        //dismiss()で、現在のviewを閉じる
-        presentation.wrappedValue.dismiss()
+        if isPresented{
+            //現在の画面が他の画面から呼び出されたものである場合
+            dismiss()//現在の画面を閉じる
+        }
     }
 }
 
