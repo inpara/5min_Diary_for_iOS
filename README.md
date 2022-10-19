@@ -48,6 +48,7 @@
   - [SwiftUIでMVVMやるシンプルなパターン３つ](https://zenn.dev/kyome/articles/710cde86537d45)
   - [CoreDataでのフォルダ構成の参考](https://design.aoziso.com/swiftui-coredata/)
 - [nil coalescing operator(??演算子)](https://swift.tecc0.com/?p=349)
+- [オプショナル型](https://rakusui.org/swift_optional/)
 
 
 ## アイデア
