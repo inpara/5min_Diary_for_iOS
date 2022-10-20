@@ -33,6 +33,7 @@ struct ContentView: View {
                         }
                     }
                 }
+                .onDelete(perform: deleteDiary)//Listの行削除時に呼び出す処理の指定
             }
             .navigationTitle("Diary")
             .navigationBarTitleDisplayMode(.automatic)
@@ -45,6 +46,15 @@ struct ContentView: View {
                 }
             }
         }
+    }
+    
+    //削除時の処理
+    private func deleteDiary(offsets:IndexSet){//offsetsには削除対象の要素番号のコレクションが渡される
+        offsets.forEach{index in
+            viewContext.delete(diaries[index])//ManagedObjectContextのdelete()メソッドを呼び出し
+        }
+        //削除結果を保存
+        try? viewContext.save()
     }
 }
 
