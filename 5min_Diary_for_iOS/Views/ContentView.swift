@@ -39,7 +39,7 @@ struct ContentView: View {
             .navigationBarTitleDisplayMode(.automatic)
             .toolbar{
                 ToolbarItem(placement: .navigationBarTrailing){
-                    NavigationLink(destination: AddDiary()){
+                    NavigationLink(destination: AddDiaryView()){
                         Text("+")
                             .font(.system(size: 50))
                     }

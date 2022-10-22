@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct AddDiary: View {
+struct AddDiaryView: View {
     @Environment(\.managedObjectContext) private var viewcontext
     @Environment(\.isPresented) var isPresented//環境変数isPresented:現在の画面が他の画面から呼び出されたのか否かをbool値で表す
     @Environment(\.dismiss) var dismiss//環境変数dismiss:現在の画面を閉じる,現在の画面がTopViewである場合は効果はない
@@ -46,8 +46,8 @@ struct AddDiary: View {
     }
 }
 
-struct AddDiary_Previews: PreviewProvider {
+struct AddDiaryView_Previews: PreviewProvider {
     static var previews: some View {
-        AddDiary()
+        AddDiaryView()
     }
 }
