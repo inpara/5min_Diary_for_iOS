@@ -52,8 +52,9 @@ struct EditDiaryView: View {
     }
 }
 
-struct EditDiaryView_Previews: PreviewProvider {
-    static var previews: some View {
-        EditDiaryView(diary: Diary())
-    }
-}
+// 本viewファイルをpreview時に毎回xcodeが落ちてしまうため、一旦以下preview用コードをコメントアウト(10/23)
+//struct EditDiaryView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        EditDiaryView(diary: Diary())
+//    }
+//}
