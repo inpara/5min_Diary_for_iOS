@@ -1,7 +1,7 @@
 //
     // Created on 2022/09/30.
     // 
-    
+    //CoreDataのContainerファイル
 
 import CoreData
 import Foundation

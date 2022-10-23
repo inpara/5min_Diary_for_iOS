@@ -20,9 +20,7 @@ struct ContentView: View {
         NavigationView {
             List {
                 ForEach(diaries) { diary in
-                    NavigationLink {
-                        Text(diary.content!)
-                    } label: {
+                    NavigationLink(destination: EditDiaryView(diary: diary)) {
                         HStack{
                             Text(diary.stringCreatedAt)
                                 .font(.headline)
