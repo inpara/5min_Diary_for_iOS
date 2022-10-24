@@ -1,9 +1,10 @@
 //
     // Created on 2022/09/30.
     // 
-    
+    //CoreDataのContainerファイル
 
 import CoreData
+import Foundation
 
 struct PersistenceController {
     static let shared = PersistenceController()
@@ -11,9 +12,13 @@ struct PersistenceController {
     static var preview: PersistenceController = {
         let result = PersistenceController(inMemory: true)
         let viewContext = result.container.viewContext
-        for _ in 0..<10 {
-            let newItem = Item(context: viewContext)
-            newItem.timestamp = Date()
+//      Diary(後程使う)
+        for i in 0..<10{
+            let newDiary = Diary(context: viewContext)
+            newDiary.id = UUID()
+            newDiary.createdAt = Calendar.current.date(byAdding: .day,value:-i, to:Date())!
+            newDiary.updatedAt = Date()
+            newDiary.content = "test\(10 - i)日目"
         }
         do {
             try viewContext.save()
